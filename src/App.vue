@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Hero title="Welcome to JudyInfo.com!" />
+    <Hero :title="siteTitle" />
     <HelloWorld msg="Knowledge is Power" />
   </div>
 </template>
@@ -14,7 +14,12 @@ export default {
   components: {
     HelloWorld,
     Hero
-  }
+  },
+  data() {
+    return {
+      siteTitle: 'Need info? Ask Judy!',
+    };
+  },
 }
 </script>
 
