@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <Hero :title="siteTitle" />
-    <HelloWorld msg="Knowledge is Power" />
     <About
       v-for="person in aboutPeople"
       :key="person.id"
@@ -14,14 +13,12 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
 import Hero from './components/Hero.vue';
 import About from './components/About.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
     Hero,
     About,
   },
