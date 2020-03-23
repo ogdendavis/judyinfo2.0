@@ -2,7 +2,7 @@
   <div class="intro">
     <h2>Knowledge is Power!</h2>
     <blockquote class="qotd">
-      <p class="quote">{{ quote }}</p>
+      <p class="quote">&ldquo;{{ quote }}&rdquo;</p>
       <footer class="author">-- {{ author }}</footer>
     </blockquote>
   </div>
@@ -26,5 +26,6 @@
   }
   p {
     margin-top: 0;
+    text-align: left;
   }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div id="app" v-if="loaded">
     <Hero :title="siteTitle" />
-    <Intro quote="I think, therefore I am" author="Spongebob" />
+    <Intro :quote="qotd.quote" :author="qotd.author" />
     <About
       v-for="person in aboutPeople"
       :key="person.id"
@@ -31,7 +31,7 @@ export default {
   data() {
     return {
       siteTitle: 'Need info? Ask Judy!',
-      loaded: true,
+      loaded: false,
       qotd: {
         quote: '',
         author: '',
@@ -76,7 +76,28 @@ export default {
       ],
     };
   },
+  methods: {
+    getQuote: function() {
+      fetch('https://quotes.rest/qod')
+        .then((r) => {
+          return r.json();
+        })
+        .then((j) => {
+          const q = j.contents.quotes[0];
+          this.qotd.quote = q.quote;
+          this.qotd.author = q.author;
+          this.loaded = true;
+        })
+        .catch((e) => {
+          console.error(e);
+        });
+    }
+  },
+  created() {
+    this.getQuote();
+  }
 }
+
 </script>
 
 <style>
