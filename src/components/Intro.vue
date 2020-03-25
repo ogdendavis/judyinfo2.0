@@ -12,9 +12,16 @@
   export default {
     name: 'Intro',
     props: {
-      quote: String,
-      author: String
-    }
+      qotd: Object,
+    },
+    computed: {
+      quote: function() {
+        return this.qotd.quote;
+      },
+      author: function() {
+        return this.qotd.author;
+      },
+    },
   }
 </script>
 

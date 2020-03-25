@@ -1,7 +1,7 @@
 <template>
   <div id="app" v-if="loaded">
     <Hero :title="siteTitle" />
-    <Intro :quote="qotd.quote" :author="qotd.author" />
+    <Intro :qotd="qotd" />
     <About
       v-for="person in aboutPeople"
       :key="person.id"
