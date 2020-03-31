@@ -2,14 +2,7 @@
   <div id="app" v-if="loaded">
     <Hero :title="siteTitle" />
     <Intro :qotd="qotd" />
-    <About
-      v-for="person in aboutPeople"
-      :key="person.id"
-      :name="person.name"
-      :hometown="person.hometown"
-      :isFemale="person.isFemale"
-      :pets="person.pets"
-    />
+    <Ask />
   </div>
   <div class="app app--loading" v-else>
     <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
@@ -19,14 +12,14 @@
 <script>
 import Hero from './components/Hero.vue';
 import Intro from './components/Intro.vue';
-import About from './components/About.vue';
+import Ask from './components/Ask.vue';
 
 export default {
   name: 'App',
   components: {
     Hero,
     Intro,
-    About,
+    Ask,
   },
   data() {
     return {
@@ -90,6 +83,9 @@ export default {
         })
         .catch((e) => {
           console.error(e);
+          this.qotd.quote = 'I couldn\'t find a good quote today.';
+          this.qotd.author = 'Judy';
+          this.loaded = true;
         });
     }
   },
