@@ -2,7 +2,7 @@
   <div id="app" v-if="loaded">
     <Hero :title="siteTitle" />
     <Intro :qotd="qotd" />
-    <Ask />
+    <router-view />
   </div>
   <div class="app app--loading" v-else>
     <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
@@ -12,14 +12,12 @@
 <script>
 import Hero from './components/Hero.vue';
 import Intro from './components/Intro.vue';
-import Ask from './components/Ask.vue';
 
 export default {
   name: 'App',
   components: {
     Hero,
     Intro,
-    Ask,
   },
   data() {
     return {
