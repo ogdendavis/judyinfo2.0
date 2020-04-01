@@ -4,9 +4,6 @@
       <input type="text" />
       <button type="submit">Ask Judy</button>
     </form>
-    <div class="ask__answer">
-
-    </div>
   </div>
 </template>
 
