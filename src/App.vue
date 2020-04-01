@@ -1,28 +1,21 @@
 <template>
-  <div id="app" v-if="loaded">
+  <div id="app">
     <Hero :title="siteTitle" />
-    <Intro :qotd="qotd" />
     <router-view />
-  </div>
-  <div class="app app--loading" v-else>
-    <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
   </div>
 </template>
 
 <script>
 import Hero from './components/Hero.vue';
-import Intro from './components/Intro.vue';
 
 export default {
   name: 'App',
   components: {
     Hero,
-    Intro,
   },
   data() {
     return {
       siteTitle: 'Need info? Ask Judy!',
-      loaded: false,
       qotd: {
         quote: '',
         author: '',
@@ -67,29 +60,6 @@ export default {
       ],
     };
   },
-  methods: {
-    getQuote: function() {
-      fetch('https://quotes.rest/qod')
-        .then((r) => {
-          return r.json();
-        })
-        .then((j) => {
-          const q = j.contents.quotes[0];
-          this.qotd.quote = q.quote;
-          this.qotd.author = q.author;
-          this.loaded = true;
-        })
-        .catch((e) => {
-          console.error(e);
-          this.qotd.quote = 'I couldn\'t find a good quote today.';
-          this.qotd.author = 'Judy';
-          this.loaded = true;
-        });
-    }
-  },
-  created() {
-    this.getQuote();
-  }
 }
 
 </script>
@@ -104,48 +74,5 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-/* For loading spinner */
-.app--loading {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
-.lds-ring {
-  display: inline-block;
-  position: relative;
-  width: 80px;
-  height: 80px;
-}
-.lds-ring div {
-  box-sizing: border-box;
-  display: block;
-  position: absolute;
-  width: 64px;
-  height: 64px;
-  margin: 8px;
-  border: 8px solid #555;
-  border-radius: 50%;
-  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: #555 transparent transparent transparent;
-}
-.lds-ring div:nth-child(1) {
-  animation-delay: -0.45s;
-}
-.lds-ring div:nth-child(2) {
-  animation-delay: -0.3s;
-}
-.lds-ring div:nth-child(3) {
-  animation-delay: -0.15s;
-}
-@keyframes lds-ring {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }
 </style>
