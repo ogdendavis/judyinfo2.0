@@ -17,6 +17,7 @@
     },
     methods: {
       ask: function() {
+        document.querySelector('#top').scrollIntoView(true);
         this.$router.push(`/ask/${encodeURIComponent(this.question)}`);
       },
     }

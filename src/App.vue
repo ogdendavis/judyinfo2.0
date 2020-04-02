@@ -1,7 +1,9 @@
 <template>
   <div id="app">
-    <Hero :title="siteTitle" />
-    <Ask />
+    <div id="top">
+      <Hero :title="siteTitle" />
+      <Ask />
+    </div>
     <router-view />
   </div>
 </template>
@@ -43,5 +45,10 @@ export default {
   z-index: -1;
   display: block;
   background: linear-gradient(rgba(34,34,34,0.1),rgba(34,34,34,0.6)), url('./assets/judy-on-camel.jpg') right top/cover no-repeat;
+}
+#top {
+  position: sticky;
+  top: 0;
+  padding-top: 1rem;
 }
 </style>

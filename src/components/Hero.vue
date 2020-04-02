@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-link to="/"><h1>{{ title }}</h1></router-link>
+    <router-link to="/"><h1 id="site-title">{{ title }}</h1></router-link>
   </div>
 </template>
 
@@ -15,11 +15,12 @@ export default {
 
 <style scoped>
 div {
-  padding: 1rem;
+  margin-bottom: 1rem;
 }
 h1 {
   color: white;
   z-index: 1;
+  margin: 0;
 }
 a {
   text-decoration: none;
