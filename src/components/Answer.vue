@@ -1,7 +1,7 @@
 <template>
   <div>
     {{ this.question }}
-    {{ this.results[0] }}
+    {{ this.results }}
   </div>
 </template>
 

@@ -26,14 +26,22 @@ export default {
 </script>
 
 <style>
-body {
-  margin: 0;
-}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  position: relative;
+  min-height: 100vh;
+  color: white;
+  padding-top: 40vh;
+}
+#app:after {
+  content: '';
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  display: block;
+  background: linear-gradient(rgba(34,34,34,0.1),rgba(34,34,34,0.6)), url('./assets/judy-on-camel.jpg') right top/cover no-repeat;
 }
 </style>
