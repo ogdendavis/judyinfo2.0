@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="answers">
     {{ this.question }}
     {{ this.results }}
   </div>
@@ -22,6 +22,24 @@
     },
 
     methods: {
+      scrollToAnswer: function() {
+        window.setTimeout(function() {
+          try {
+            // Need find computed top padding, since it's set in vh
+            const topStyle = window.getComputedStyle(document.querySelector('#top'));
+            const topPadding = Number(topStyle.paddingTop.slice(0,-2));
+            // Account for padding at bottom of #top
+            const offset = topPadding - 16;
+            window.scrollTo({
+              top: offset,
+              behavior: 'smooth',
+            });
+          }
+          catch {
+            console.error('Couldn\'t scroll to answers');
+          }
+        }, 100);
+      },
       getAnswer: function(question = this.question) {
         // This is temporary, to save API hits from the Google service
         // Copied from response text for the search 'test'
@@ -51,10 +69,12 @@
 
     created() {
       this.getAnswer();
+      this.scrollToAnswer();
     },
 
     beforeRouteUpdate(to,from,next) {
       this.getAnswer(to.params.q);
+      this.scrollToAnswer();
       next();
     },
 

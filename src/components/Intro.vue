@@ -1,7 +1,7 @@
 <template>
   <div class="intro" v-if="ready">
     <h2>Knowledge is Power!</h2>
-    <blockquote class="qotd">
+    <blockquote>
       <p class="quote">&ldquo;{{ quote }}&rdquo;</p>
       <footer class="author">-- {{ author }}</footer>
     </blockquote>
@@ -48,14 +48,18 @@ export default {
 </script>
 
 <style scoped>
-.qotd {
-  background: #444;
+.intro {
+  margin-top: 10vh;
+}
+blockquote {
   color: #fff;
   padding: 1rem;
+  max-width: 70vw;
+  display: block;
+  margin: 0 auto;
 }
 p {
   margin-top: 0;
-  text-align: left;
 }
 
 /* For loading spinner */

@@ -17,7 +17,6 @@
     },
     methods: {
       ask: function() {
-        document.querySelector('#top').scrollIntoView(true);
         this.$router.push(`/ask/${encodeURIComponent(this.question)}`);
       },
     }
@@ -28,7 +27,7 @@
 .ask {
   width: 80vw;
   min-width: 15rem;
-  margin: 0 auto 2rem;
+  margin: 0 auto;
 }
 form {
   display: flex;

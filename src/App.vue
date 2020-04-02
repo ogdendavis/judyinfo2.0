@@ -31,9 +31,8 @@ export default {
 #app {
   text-align: center;
   position: relative;
-  min-height: 100vh;
+  min-height: 60vh;
   color: white;
-  padding-top: 40vh;
 }
 #app:after {
   content: '';
@@ -44,11 +43,12 @@ export default {
   left: 0;
   z-index: -1;
   display: block;
-  background: linear-gradient(rgba(34,34,34,0.1),rgba(34,34,34,0.6)), url('./assets/judy-on-camel.jpg') right top/cover no-repeat;
+  background: linear-gradient(rgba(34,34,34,0.05),rgba(34,34,34,0.95)), url('./assets/judy-on-camel.jpg') right top/cover no-repeat;
 }
 #top {
   position: sticky;
-  top: 0;
-  padding-top: 1rem;
+  top: calc((40vh - 1rem) * -1);
+  padding-top: 40vh;
+  padding-bottom: 2rem;
 }
 </style>
