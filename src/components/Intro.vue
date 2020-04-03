@@ -49,7 +49,10 @@ export default {
 
 <style scoped>
 .intro {
-  margin-top: 10vh;
+  position: absolute;
+  top: 10vh;
+  left: 0;
+  right: 0;
 }
 blockquote {
   color: #fff;

@@ -4,7 +4,11 @@
       <Hero :title="siteTitle" />
       <Ask />
     </div>
-    <router-view />
+    <div id="main-container">
+      <transition name="fade">
+        <router-view />
+      </transition>
+    </div>
   </div>
 </template>
 
@@ -27,11 +31,11 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
 #app {
   text-align: center;
   position: relative;
-  min-height: 60vh;
+  min-height: 101vh; /* Over to force scrollbar on initial load */
   color: white;
 }
 #app:after {
@@ -45,10 +49,25 @@ export default {
   display: block;
   background: linear-gradient(rgba(34,34,34,0.05),rgba(34,34,34,0.95)), url('./assets/judy-on-camel.jpg') right top/cover no-repeat;
 }
+
 #top {
   position: sticky;
   top: calc((40vh - 1rem) * -1);
   padding-top: 40vh;
   padding-bottom: 2rem;
+}
+
+#main-container {
+  position: relative;
+  max-width: 90vw;
+  margin: auto;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+  transform: scale(0);
+}
+.fade-enter-active, .fade-leave-active {
+  transition: all .5s ease-in-out;
 }
 </style>
