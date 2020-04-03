@@ -54,6 +54,10 @@
               top: offset,
               behavior: 'smooth',
             });
+
+            // Now add height to #top-bgfix background element, so results scroll under #top
+            const topHeight = Number(topStyle.height.slice(0,-2));
+            document.querySelector('#top-bgfix').style.height = `${topHeight + 32}px`;
           }
           catch {
             console.error('Couldn\'t scroll to answers');
@@ -121,10 +125,6 @@
 
 <style scoped>
 #answers {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
   opacity: 0;
   transition: all .5s ease-in-out;
   display: flex;

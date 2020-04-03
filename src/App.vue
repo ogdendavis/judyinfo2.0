@@ -3,6 +3,7 @@
     <div id="top">
       <Hero :title="siteTitle" />
       <Ask />
+      <div id="top-bgfix"></div>
     </div>
     <div id="main-container">
       <transition name="fade">
@@ -55,6 +56,18 @@ export default {
   top: calc((40vh - 1rem) * -1);
   padding-top: 40vh;
   padding-bottom: 2rem;
+  background: inherit;
+  z-index: 1;
+}
+#top-bgfix {
+  content: '';
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: -1;
+  display: block;
+  background: url('./assets/judy-on-camel.jpg') right top/cover no-repeat;
 }
 
 #main-container {
