@@ -17,7 +17,7 @@
 
 <style scoped>
 #footer {
-  padding: 2rem 4rem 0.5rem;
+  padding: 2rem 0 0.5rem;
   font-weight: 700;
   display: flex;
   flex-flow: row wrap;

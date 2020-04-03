@@ -25,7 +25,6 @@
 
 <style scoped>
 .ask {
-  width: 80vw;
   min-width: 15rem;
   margin: 0 auto;
 }

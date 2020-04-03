@@ -41,6 +41,8 @@ export default {
   position: relative;
   min-height: 101vh; /* Over to force scrollbar on initial load */
   color: white;
+  max-width: 1000px;
+  margin: auto;
 }
 #app:after {
   content: '';
