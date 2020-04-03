@@ -47,7 +47,7 @@ export default {
   left: 0;
   z-index: -1;
   display: block;
-  background: linear-gradient(rgba(34,34,34,0.05),rgba(34,34,34,0.95)), url('./assets/judy-on-camel.jpg') right top/cover no-repeat;
+  background: url('./assets/judy-on-camel.jpg') right top/cover no-repeat;
 }
 
 #top {
