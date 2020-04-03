@@ -64,7 +64,7 @@
           }
         }, 100);
       },
-      getAnswer: function(question = this.question) {
+      /* getAnswer: function(question = this.question) {
         // This is temporary, to save API hits from the Google service
         // Copied from response text for the search 'test'
         this.hasAnswers = false;
@@ -82,8 +82,8 @@
           console.log(this.results);
         }, 500);
 
-      }
-      /* getAnswer: function(question = this.question) {
+      } */
+      getAnswer: function(question = this.question) {
         // Toggle animation class, first
         this.hasAnswers = false;
 
@@ -108,7 +108,7 @@
             this.computeRestatedQuestion(false);
             console.error('Error in Answer.vue:', er);
           })
-      }, */
+      },
     },
 
     created() {
