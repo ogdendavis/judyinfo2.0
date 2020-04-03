@@ -1,18 +1,21 @@
 <template>
   <div id="answers" :class="{ hasAnswers: hasAnswers }">
-    {{ this.question }}
+    <div>
+      <h2>{{ this.restatedQuestion }}</h2>
+    </div>
     {{ this.results }}
   </div>
 </template>
 
 <script>
   export default {
-    name: 'Answer',
+    name: 'Answers',
 
     data() {
       return {
         results: [],
         hasAnswers: false,
+        restatedQuestion: '',
       };
     },
 
@@ -23,6 +26,16 @@
     },
 
     methods: {
+      computeRestatedQuestion: function(querySuccess = true) {
+        // This is a function to set a data property, instead of a computed function, because I need to set it on a delay -- I call this function after fetching the answer, so the new question renders only after the old question has faded off the page
+
+        // Was search successful?
+        let judyKnows = querySuccess ? 'Judy knows!' : 'Judy doesn\'t know.'
+        // Format user input as a question, if not already
+        let q = this.question[this.question.length-1] === '?' ? this.question + ' ' + judyKnows : this.question + '? ' + judyKnows;
+        // Capitalize and set the data property
+        this.restatedQuestion = q.charAt(0).toUpperCase() + q.slice(1);
+      },
       scrollToAnswer: function() {
         window.setTimeout(function() {
           try {
@@ -54,6 +67,7 @@
         window.setTimeout(() => {
           this.results = Math.random() > 0.5 ? result1 : result2;
           this.hasAnswers = true;
+          this.computeRestatedQuestion();
           this.scrollToAnswer();
         }, 500);
 
@@ -74,11 +88,13 @@
           .then((j) => {
             this.results = j.items || [`Oops! Judy doesn't know the answer to '${question}'.`];
             this.hasAnswers = true;
+            this.computeRestatedQuestion();
             this.scrollToAnswer();
           })
           .catch((er) => {
             this.results = [`Oops! Judy doesn't know the answer to '${question}'.`];
             this.hasAnswers = true;
+            this.computeRestatedQuestion(false);
             console.error('Error in Answer.vue:', er);
           })
       }, */
@@ -107,5 +123,9 @@
 }
 #answers.hasAnswers {
   opacity: 1;
+}
+
+h2 {
+  font-size: 2rem;
 }
 </style>

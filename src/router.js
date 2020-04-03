@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Intro from '@/components/Intro';
-import Answer from '@/components/Answer';
+import Answers from '@/components/Answers';
 
 Vue.use(Router);
 
@@ -16,7 +16,7 @@ export default new Router({
     {
       path: '/ask/:q',
       name: 'Query',
-      component: Answer
+      component: Answers
     }
   ],
 });
