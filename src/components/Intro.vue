@@ -49,15 +49,15 @@ export default {
 
 <style scoped>
 .intro {
-  position: absolute;
-  top: 10vh;
-  left: 0;
-  right: 0;
+  padding: 2rem;
+  margin-top: 10vh;
   background: linear-gradient(rgba(34,34,34,0.9),rgba(34,34,34,0.7));
+}
+h2 {
+  margin: 0 0 2rem;
 }
 blockquote {
   color: #fff;
-  padding: 1rem;
   max-width: 70vw;
   display: block;
   margin: 0 auto;

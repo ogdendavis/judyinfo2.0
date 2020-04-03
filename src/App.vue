@@ -10,18 +10,21 @@
         <router-view />
       </transition>
     </div>
+    <Footer />
   </div>
 </template>
 
 <script>
 import Hero from './components/Hero.vue';
 import Ask from '@/components/Ask';
+import Footer from '@/components/Footer';
 
 export default {
   name: 'App',
   components: {
     Hero,
-    Ask
+    Ask,
+    Footer
   },
   data() {
     return {
