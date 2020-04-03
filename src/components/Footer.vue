@@ -25,6 +25,11 @@
   align-items: center;
   text-shadow: 2px 3px 10px #222;
 }
+@media only screen and (max-width: 560px) {
+  #footer {
+    justify-content: center;
+  }
+}
 a {
   color: white;
   transition: all .3s ease-in-out;

@@ -78,6 +78,19 @@ a.answer:hover h3 {
   box-sizing: border-box;
 }
 
+@media only screen and (max-width: 680px) {
+  a.answer {
+    flex-flow: column;
+  }
+  .answer__text {
+    max-width: 90vw;
+  }
+  .site-thumbnail {
+    max-width: 90vw;
+    padding-bottom: 2rem;
+  }
+}
+
 h3 {
   margin-bottom: 0.5rem;
 }

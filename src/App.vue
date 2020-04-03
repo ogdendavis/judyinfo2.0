@@ -64,6 +64,14 @@ export default {
   background: inherit;
   z-index: 1;
 }
+@media only screen and (max-width: 768px) {
+  #top {
+    padding-top: 20vh;
+    top: calc((20vh - 1rem) * -1);
+  }
+}
+
+
 #top-bgfix {
   content: '';
   position: fixed;
@@ -73,6 +81,12 @@ export default {
   z-index: -1;
   display: block;
   background: url('./assets/judy-on-camel.jpg') right top/cover no-repeat;
+}
+
+@media only screen and (max-width: 800px) {
+  #top-bgfix, #app:after {
+    background-size: auto 100vh;
+  }
 }
 
 #main-container {
