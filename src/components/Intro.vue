@@ -53,6 +53,7 @@ export default {
   top: 10vh;
   left: 0;
   right: 0;
+  background: linear-gradient(rgba(34,34,34,0.9),rgba(34,34,34,0.7));
 }
 blockquote {
   color: #fff;
