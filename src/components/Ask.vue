@@ -1,26 +1,26 @@
 <template>
   <div class="ask">
     <form v-on:submit.prevent="ask">
-      <input type="text" v-model="question"/>
+      <input type="text" v-model="question" />
       <button type="submit">Ask Judy</button>
     </form>
   </div>
 </template>
 
 <script>
-  export default {
-    name: 'Ask',
-    data() {
-      return {
-        question: '',
-      }
-    },
-    methods: {
-      ask: function() {
-        this.$router.push(`/ask/${encodeURIComponent(this.question)}`);
-      },
+export default {
+  name: "Ask",
+  data() {
+    return {
+      question: ""
+    };
+  },
+  methods: {
+    ask: function() {
+      this.$router.push(`/ask/${encodeURIComponent(this.question)}`);
     }
   }
+};
 </script>
 
 <style scoped>
@@ -47,9 +47,9 @@ input {
 button {
   font-size: 18px;
   font-weight: 700;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   margin: 0 2rem;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   color: blue;
   background: white;
   border: 2px solid blue;
