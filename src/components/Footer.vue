@@ -4,15 +4,22 @@
       Judy, we love you. This is just a silly joke.
     </div>
     <div>
-      © 2020, <a href="https://ogdendavis.com" target="_blank">Lucas Ogden-Davis</a>
+      © {{ year }},
+      <a href="https://ogdendavis.com" target="_blank">Lucas Ogden-Davis</a>
     </div>
   </div>
 </template>
 
 <script>
-  export default {
-    name: 'Footer',
+export default {
+  name: "Footer",
+  data() {
+    const year = new Date().getFullYear();
+    return {
+      year
+    };
   }
+};
 </script>
 
 <style scoped>
@@ -32,7 +39,7 @@
 }
 a {
   color: white;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 a:hover {
   color: blue;
